@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class GameMainDirector : MonoBehaviour {
-    private static int Lv = 1;
+    public static int Lv = 1;
     private static int nekoVal = 1;
     private static int money = 0;
     private static int LvCon = Lv * 10000 / 2;
@@ -58,7 +58,7 @@ public class GameMainDirector : MonoBehaviour {
     //各ボタン押下時に数値を更新
     void Reload()
     {
-        LvCon = Lv * 10000 / 2;
+        LvCon = Lv * 8000;
         this.lvText.GetComponent<Text>().text = ("Lv：" + Lv);
         this.moneyValText.GetComponent<Text>().text = ("おかね：" + money + "ネコイン");
         this.lvUPConText.GetComponent<Text>().text = ("LvUP条件：" + LvCon + "ネコイン");

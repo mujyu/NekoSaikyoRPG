@@ -71,7 +71,10 @@
   <ItemGroup>
     <Compile Include="Assets\EarthDirector.cs" />
     <Compile Include="Assets\GameMainDirector.cs" />
+    <Compile Include="Assets\NekoController.cs" />
     <Compile Include="Assets\NekoGenerator.cs" />
+    <Compile Include="Assets\VolumeON.cs" />
+    <Compile Include="Assets\VolumeOff.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
