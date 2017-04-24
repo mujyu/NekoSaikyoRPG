@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NekoSaikyoRPG.CSharp.Plugins", "NekoSaikyoRPG.CSharp.Plugins.csproj", "{5C51026E-F8B7-4382-6515-3E0F2EECB986}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NekoSaikyoRPG.CSharp", "NekoSaikyoRPG.CSharp.csproj", "{FDA3353E-9B70-1586-0756-01315A55B60D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NekoSaikyoRPG.CSharp.Editor", "NekoSaikyoRPG.CSharp.Editor.csproj", "{45FF8A12-9404-756A-32DB-62A1BB8EECD2}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C51026E-F8B7-4382-6515-3E0F2EECB986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C51026E-F8B7-4382-6515-3E0F2EECB986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C51026E-F8B7-4382-6515-3E0F2EECB986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C51026E-F8B7-4382-6515-3E0F2EECB986}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FDA3353E-9B70-1586-0756-01315A55B60D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FDA3353E-9B70-1586-0756-01315A55B60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDA3353E-9B70-1586-0756-01315A55B60D}.Release|Any CPU.ActiveCfg = Release|Any CPU

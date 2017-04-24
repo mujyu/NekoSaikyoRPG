@@ -3,10 +3,11 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class GameMainDirector : MonoBehaviour {
-    public static int Lv = 1;
-    private static int nekoVal = 1;
-    private static int money = 0;
-    private static int LvCon = Lv * 10000 / 2;
+    private long longMaxVal = long.MaxValue;
+    public static long Lv = 1;
+    private static long nekoVal = 1;
+    private static long money = 0;
+    private static long LvCon = Lv * 5000 / 2;//LvUPの値
 
     GameObject lvText;
     GameObject nekoValText;
@@ -28,6 +29,7 @@ public class GameMainDirector : MonoBehaviour {
 	
     //放置時の処理
 	void Update () {
+        CountStop();
         nekoVal += Lv;
         this.nekoValText.GetComponent<Text>().text = ("侵略数：" + nekoVal + "匹");
         PrefsSet();
@@ -58,37 +60,38 @@ public class GameMainDirector : MonoBehaviour {
     //各ボタン押下時に数値を更新
     void Reload()
     {
-        LvCon = Lv * 8000;
+        CountStop();
+        LvCon = Lv * 2500;
         this.lvText.GetComponent<Text>().text = ("Lv：" + Lv);
         this.moneyValText.GetComponent<Text>().text = ("おかね：" + money + "ネコイン");
         this.lvUPConText.GetComponent<Text>().text = ("LvUP条件：" + LvCon + "ネコイン");
     }
 
-    //カンスト処理(intの限界値まで)
+    //カンスト処理(intの最大値まで)
     void CountStop()
     {
-        if (Lv > 2147483647)Lv = 2147483646;
-        if (nekoVal > 2147483647)nekoVal = 2147483646;
-        if (money > 2147483647) money = 2147483646;
-        if (LvCon > 2147483647) LvCon = 2147483646;
+        if (Lv > longMaxVal || Lv < 0) Lv = longMaxVal;
+        if (nekoVal > longMaxVal / 2  || nekoVal < 0) nekoVal = longMaxVal / 2;
+        if (money > longMaxVal / 2 || money < 0) money = longMaxVal / 2;
+        if (LvCon > longMaxVal / 2 || LvCon < 0) LvCon = longMaxVal / 2;
     }
 
 
     //各数値をセーブする
     void PrefsSet()
     {
-        PlayerPrefs.SetInt("Lv", Lv);
-        PlayerPrefs.SetInt("nekoVal", nekoVal);
-        PlayerPrefs.SetInt("money", money);
-        PlayerPrefs.SetInt("LvCon", LvCon);
+        PlayerPrefsX.SetLong("Lv", Lv);
+        PlayerPrefsX.SetLong("nekoVal", nekoVal);
+        PlayerPrefsX.SetLong("money", money);
+        PlayerPrefsX.SetLong("LvCon", LvCon);
     }
 
     //各数値をロードする
     void PrefsGet()
     {
-        Lv = PlayerPrefs.GetInt("Lv");
-        nekoVal = PlayerPrefs.GetInt("nekoVal");
-        money = PlayerPrefs.GetInt("money");
-        LvCon = PlayerPrefs.GetInt("LvCon");
+        Lv = PlayerPrefsX.GetLong("Lv");
+        nekoVal = PlayerPrefsX.GetLong("nekoVal");
+        money = PlayerPrefsX.GetLong("money");
+        LvCon = PlayerPrefsX.GetLong("LvCon");
     }
 }

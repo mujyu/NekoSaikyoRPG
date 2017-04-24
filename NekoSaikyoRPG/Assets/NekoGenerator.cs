@@ -22,13 +22,21 @@ public class NekoGenerator : MonoBehaviour
     void Update()
     {
         span = 500 / GameMainDirector.Lv;
-        if(GameMainDirector.Lv > 500)
+        if(GameMainDirector.Lv >= 500)
         {
             span = 1f;
         }
-        else if (GameMainDirector.Lv > 1000)
+        else if (GameMainDirector.Lv >= 1000)
         {
             span = 0.5f;
+        }
+        else if (GameMainDirector.Lv >= 5000)
+        {
+            span = 0.1f;
+        }
+        else if (GameMainDirector.Lv >= 10000)
+        {
+            span = 0.001f;
         }
 
         this.deltaT += Time.deltaTime;
@@ -51,7 +59,7 @@ public class NekoGenerator : MonoBehaviour
 
     }
 
-    //以下では、各色のネコPrefabを用意する。
+    //以下、各色のネコPrefabを用意する。
     void NekoToraPref()
     {
         NekoGo = Instantiate(NekoPrefab) as GameObject;
